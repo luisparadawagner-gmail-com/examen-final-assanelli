@@ -1,0 +1,46 @@
+<div><button mat-raised-button color="primary" routerLink="/crear-noticia-component" routerLinkActive="active">
+    Crear Noticia
+    </button>
+</div>
+<br>
+<div class="container" style="width: 60%;">
+    <table mat-table style="width: 100%;" [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef> Titulo </th>
+            <td mat-cell *matCellDef="let element"> {{element.titulo }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="texto">
+            <th mat-header-cell *matHeaderCellDef> Texto </th>
+            <td mat-cell *matCellDef="let element"> {{element.texto }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha de publicacion">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Publicacion </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaPublicacion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-mini-fab color="primary" (click)="editar(element)">Editar</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="editarEstado">
+            <th mat-header-cell *matHeaderCellDef> Editar Estado</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="Warm" (click)="editarEstado(element)">Editar Estado</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+    </table>
+</div>
